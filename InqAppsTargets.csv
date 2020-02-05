@@ -1,0 +1,67 @@
+Primary State/Province,Target 2019,Primary City & Primary State/Province (group),Inquiry,Applicant,Year
+Connecticut,Targeted,"Fairfield, CT",67,9,2019
+Connecticut,Targeted,"Hartford, CT",72,10,2019
+Connecticut,Targeted,"Litchfield, CT",18,3,2019
+Connecticut,Targeted,"Middlesex, CT",13,4,2019
+Connecticut,Targeted,"New Haven, CT",37,7,2019
+Connecticut,Targeted,"New London, CT",20,4,2019
+Connecticut,Targeted,"Windham, CT",20,2,2019
+Massachusetts,Targeted,"Barnstable, MA",26,4,2019
+Massachusetts,Targeted,"Berkshire, MA",13,2,2019
+Massachusetts,Targeted,"Bristol, MA",57,11,2019
+Massachusetts,Targeted,"Essex, MA",156,26,2019
+Massachusetts,Targeted,"Hampden, MA",36,3,2019
+Massachusetts,Targeted,"Middlesex, MA",137,26,2019
+Massachusetts,Targeted,"Norfolk, MA",50,9,2019
+Massachusetts,Targeted,"Plymouth, MA",68,13,2019
+Massachusetts,Targeted,"Suffolk, MA",40,9,2019
+Massachusetts,Targeted,"Worcester, MA",79,10,2019
+New Hampshire,Targeted,"Carroll, NH",10,6,2019
+New Hampshire,Targeted,"Cheshire, NH",12,3,2019
+New Hampshire,Targeted,"Grafton, NH",7,3,2019
+New Hampshire,Targeted,"Hillsborough, NH",86,14,2019
+New Hampshire,Targeted,"Merrimack, NH",36,10,2019
+New Hampshire,Targeted,"Rockingham, NH",84,14,2019
+New Hampshire,Targeted,"Strafford, NH",39,15,2019
+Rhode Island,Targeted,"Providence, RI",94,7,2019
+Rhode Island,Targeted,"Washington, RI",16,2,2019
+Vermont,Targeted,"Caledonia, VT",9,4,2019
+Vermont,Targeted,"Cheshire, NH",1,,2019
+Vermont,Targeted,"Chittenden, VT",23,7,2019
+Vermont,Targeted,"Orange, VT",6,3,2019
+Vermont,Targeted,"Rutland, VT",12,6,2019
+Vermont,Targeted,"Washington, VT",9,3,2019
+Connecticut,Target 17 18,"Fairfield, CT",67,4,2017
+Connecticut,Target 17 18,"Hartford, CT",103,15,2017
+Connecticut,Target 17 18,"New Haven, CT",84,6,2017
+Massachusetts,Target 17 18,"Essex, MA",178,41,2017
+Massachusetts,Target 17 18,"Middlesex, MA",247,27,2017
+Massachusetts,Target 17 18,"Worcester, MA",156,27,2017
+New Hampshire,Target 17 18,"Belknap, NH",18,7,2017
+New Hampshire,Target 17 18,"Hillsborough, NH",121,26,2017
+New Hampshire,Target 17 18,"Rockingham, NH",94,18,2017
+New Hampshire,Target 17 18,"Strafford, NH",51,17,2017
+Vermont,Target 17 18,"Caledonia, VT",12,1,2017
+Vermont,Target 17 18,"Chittenden, VT",31,10,2017
+Vermont,Target 17 18,"Rutland, VT",15,2,2017
+Vermont,Target 17 18,"Windham, VT",13,1,2017
+Vermont,Target 17 18,"Windsor, VT",32,8,2017
+Rhode Island,Target 17 18,"Providence, RI",127,9,2017
+Rhode Island,Target 17 18,"Washington, RI",23,2,2017
+Connecticut,Target 17 18,"Fairfield, CT",86,6,2018
+Connecticut,Target 17 18,"Hartford, CT",112,13,2018
+Connecticut,Target 17 18,"New Haven, CT",117,3,2018
+Massachusetts,Target 17 18,"Essex, MA",203,45,2018
+Massachusetts,Target 17 18,"Middlesex, MA",286,58,2018
+Massachusetts,Target 17 18,"Worcester, MA",142,15,2018
+New Hampshire,Target 17 18,"Belknap, NH",29,10,2018
+New Hampshire,Target 17 18,"Hillsborough, NH",117,28,2018
+New Hampshire,Target 17 18,"Rockingham, NH",126,43,2018
+New Hampshire,Target 17 18,"Strafford, NH",64,14,2018
+Vermont,Target 17 18,"Caledonia, VT",13,4,2018
+Vermont,Target 17 18,"Chittenden, VT",37,10,2018
+Vermont,Target 17 18,"Rutland, VT",16,4,2018
+Vermont,Target 17 18,"Windham, VT",10,2,2018
+Vermont,Target 17 18,"Windsor, VT",16,7,2018
+Rhode Island,Target 17 18,"Providence, RI",111,3,2018
+Rhode Island,Target 17 18,"Washington, RI",25,2,2018
