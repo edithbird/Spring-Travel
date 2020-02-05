@@ -53,7 +53,30 @@ Targeted Areas
 for code target2019 <- c('Fairfield, CT','Hartford, CT','Litchfield, CT','Middlesex, CT','New Haven, CT','New London, CT','Windham, CT','Barnstable, MA','Berkshire, MA','Bristol, MA','Essex, MA','Hampden, MA','Middlesex, MA','Norfolk, MA','Plymouth, MA','Suffolk, MA','Worcester, MA','Carroll, NH','Cheshire, NH','Grafton, NH','Hillsborough, NH','Merrimack, NH','Rockingham, NH','Strafford, NH','Providence, RI','Washington, RI','Bennington, VT','Caledonia, VT','Chittenden, VT','Orange, VT','Rutland, VT',Washington, VT)
 
 
-## FY2018
+## FY2018 
+
+Findings document https://docs.google.com/document/d/1-w7v5bHpZ1cHQj47AJQ59dItYlKs6bvJU4nVczqynpg/edit
+
+* Fairfield, CT
+* Hartford, CT
+* New Haven, CT
+* Essex, MA
+* Middlesex, MA
+* Worcester, MA
+* Belknap, NH
+* Hillsborough, NH
+* Rockingham, NH
+* Strafford, NH
+* Caledonia, VT
+* Chittenden, VT
+* Rutland, VT
+* Windham, VT
+* Windsor, VT
+* Washington, RI
+* Providence, RI
+
+
+for code target2018<- c('Fairfield, CT','Hartford, CT','New Haven, CT','Essex, MA','Middlesex, MA','Worcester, MA','Belknap, NH','Hillsborough, NH','Rockingham, NH','Strafford, NH','Caledonia, VT','Chittenden, VT','Rutland, VT','Windham, VT','Windsor, VT','Washington, RI','Providence, RI')
 
 
 
