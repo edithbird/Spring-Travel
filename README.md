@@ -27,7 +27,6 @@ Targeted Areas
 * Berkshire, MA
 * Bristol, MA
 * Essex, MA
-* Hamden, MA
 * Hampden, MA
 * Middlesex, MA
 * Norfolk, MA
