@@ -201,3 +201,9 @@ An increase in inquiries is very positive.
 
 Next steps include looking at enrollments, geo-targeted engagement in the website using event site addresses. Additionally, it is important to look at the participant’s class because many of the attendees were Juniors, therefore not necessarily becoming Inquiries or Applicants this soon in the process. We will continue to monitor performance year over year for inquiries and applicants and analyze the performance of the advertisements themselves. 
 
+
+
+| Attempt | #1  | #2  |
+| :-----: | :-: | :-: |
+| Seconds | 301 | 283 |
+
