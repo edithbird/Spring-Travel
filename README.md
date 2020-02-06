@@ -202,9 +202,8 @@ An increase in inquiries is very positive.
 Next steps include looking at enrollments, geo-targeted engagement in the website using event site addresses. Additionally, it is important to look at the participant’s class because many of the attendees were Juniors, therefore not necessarily becoming Inquiries or Applicants this soon in the process. We will continue to monitor performance year over year for inquiries and applicants and analyze the performance of the advertisements themselves. 
 
 ### Targeted 2017, 2018, 2019
-|  Location           | Inquiries                | Applicants              |
-| :-----------------: | :--------------------- : | :--------------------- :|
-| State |    County   |  2017  |  2018  |  2019  |  2017  |  2018  |  2019 |
+
+| State |    County   |  Inquiries 2017  | Inquiries 2018  |  Inquiries 2019  | Applicants 2017  |  Applicants 2018  |  Applicants 2019 |
 | :---: | :---------: | :----: | :----: | :----: |:-----: | :----: |:----: |
 | CT   | Fairfield| 283    | 301    | 283    | 301    | 283    |   789 |
 | CT   | Hartford | 283    | 301    | 283    | 301    | 283    |   789 |
