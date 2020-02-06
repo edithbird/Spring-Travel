@@ -203,15 +203,15 @@ Next steps include looking at enrollments, geo-targeted engagement in the websit
 
 
 
-| Attempt | #1  | #2  |#1  | #2  |#1  | #2  |
-| :-----: | :-: | :-: | :-----: | :-: | :-: |
-| Seconds | 301 | 283 | Seconds | 301 | 283 |
-| Seconds | 301 | 283 | Seconds | 301 | 283 |
-| Seconds | 301 | 283 | Seconds | 301 | 283 |
-| Seconds | 301 | 283 | Seconds | 301 | 283 |
-| Seconds | 301 | 283 | Seconds | 301 | 283 |
-| Seconds | 301 | 283 | Seconds | 301 | 283 |
-| Seconds | 301 | 283 | Seconds | 301 | 283 |
+| Attempt | #1  | #2  |#1   | #2  |#1  | #2  |
+| :-----: | :-: | :-: | :-: | :-: |:-: | :-: |
+| Seconds | 301 | 283 | 301 | 283 | 301| 283 |
+| Seconds | 301 | 283 | 301 | 283 | 301| 283 |
+| Seconds | 301 | 283 | 301 | 283 | 301| 283 |
+| Seconds | 301 | 283 | 301 | 283 | 301| 283 |
+| Seconds | 301 | 283 | 301 | 283 | 301| 283 |
+| Seconds | 301 | 283 | 301 | 283 | 301| 283 |
+| Seconds | 301 | 283 | 301 | 283 | 301| 283 |
 
 
 
