@@ -32,7 +32,7 @@ library(stringr)
 
 ### Basic Description
 
-[The University of Southern Maine's Office of Marketing and Brand Management has run a digital advertising campaign to support Admissions'out-of-state spring travel events offered by the Office of Admissions for the past three years. The schedule of events has not differed significantly over the past 3 years. Advertising is able to geo-target the ads based on the Admission's counselors travel schedule. Typically, ads precede and follow events for a week in the general geographic location. In 2019, we revised the messaging to promote our RSP program, which is beneficial for out-of-state students.]
+[The University of Southern Maine's Office of Marketing and Brand Management has run a digital advertising campaign to support Admissions'out-of-state spring travel events offered by the Office of Admissions for the past three years. The schedule of events has not differed significantly over the past 3 years. Advertising is able to geo-target the ads based on the Admission's counselors travel schedule. Typically, ads precede and follow events for a week in the general geographic location. In 2019, we revised the messaging to promote our RSP program, which is beneficial for out-of-state students.
 
 **Overall project objective**
 
@@ -57,19 +57,20 @@ library(stringr)
 
 * We have run digital display ads through Doubleclick Bid Manager and Facebook to support Admissions' spring travel activities for the past three years. 
 
-*[ We have seen good growth within the Doubleclick platform.] 
+* We have seen good growth within the Doubleclick platform.
 
-* [Facebook saw a big drop in CTR performance. In general, [FB Newsfeed CTR overall experienced a 24% drop from July, 2017 - July, 2018.](https://blog.adstage.io/facebook-ads-benchmarks) We felt such a drop required that we look into other digital advertising options, and therefore expanded our portfolio to include Instagram and LinkedIn in addition to DBM.
-]
-* [We decreased our spend on FB display for the HS market, as we have seen a decline over time in CTR. This decline continued with this Spring Travel campaign. A decline in spending does not directly impact CTR.] 
+* Facebook saw a big drop in CTR performance. In general, [FB Newsfeed CTR overall experienced a 24% drop from July, 2017 - July, 2018.](https://blog.adstage.io/facebook-ads-benchmarks) We felt such a drop required that we look into other digital advertising options, and therefore expanded our portfolio to include Instagram to compliment DBM. We also expanded platform mediums into Carousel (CAR) and Video (VID). 
 
+* Additionally, we decreased our spend on FB display for the Out-of-State HS (TL) market, as we have seen the CTR drop from 0.95% in 2017 to 0.33% in 2019. A decrease in spending does not directly impact CTR.
+
+**FB and DBM Click-through-Rates from 2019-2019**
 
 ```{r}
 Vendor <- c("DBM", "FB/IG")
 Impressions <- c("9,001,255", "1,418,314")
 CTR <- c("0.02%", "0.44%")
 Ads <- read.csv("file:///C:/Users/christine.iyer/Downloads/SpringAds.csv", header = T, stringsAsFactors = F)
-
+#head(Ads)
 
 Ads1 <- Ads %>% 
   filter(Medium == "Disp" & Source != "IG") %>% 
@@ -84,11 +85,10 @@ Ads1 %>%
 
 ```
 
-As a result of Facebook's waning CTR, we decreased our total spend with this vendor.
+**Facebook Display Ad Spend from 2017-2019**
 
 ```{r}
 Ads <- read.csv("file:///C:/Users/christine.iyer/Downloads/SpringAds.2.csv", header = T, stringsAsFactors = F)
-
 Ads1 <- Ads %>% 
   group_by(FiscalYear = Year.of.Master.Date, Source, Medium) %>% 
         summarise(Clicks = sum(Clicks), 
@@ -97,19 +97,19 @@ Ads1 <- Ads %>%
                   CTR = paste0(round((sum(Clicks))/(sum(Impressions)) * 100, 2), "%"),
                   Cost = paste0("$",sum(as.numeric(Cost))))  %>% arrange(factor(Medium, levels = c("Disp", "Vid", "Car")),factor(Source, levels = c("FB", "IG")))%>% select(Source, Medium,FiscalYear, CTR, Cost)
 
-Ads1 %>% filter(Source == "FB" & Medium == "Disp") %>% select(FiscalYear, Cost) %>% 
+Ads1 %>% filter(Source != "IG" & Medium == "Disp") %>% select(FiscalYear, Cost) %>% 
   kable() %>%
   kable_styling() %>% na.omit()
 ```
 
-The remaining 2019 spring travel budget was reallocated to expand into Instagram with display, video, and carousel ads, as well as add video and carousel to Facebook. The results are shown below.  
+**All Facebook and Instagram Spending in 2019** 
 
 * Note that Instagram display ads performed above the national benchmark of 0.16%
 
 
 ```{r}
 Ads1 %>% 
-  filter(FiscalYear >2018) %>% 
+  filter(FiscalYear >2018 & Source != "DBM") %>% 
   select(Source, Medium, CTR, Cost) %>% 
   kable() %>%
   kable_styling() %>% 
@@ -286,6 +286,50 @@ SpringRevisedFunnel%>%
 
 #Links[Targeted areas](https://docs.google.com/document/d/1uT643LkmKsqNxyx1IOLlLPGdxZM63ZibR9weZLrTYVY/edit)
 ```
+
+```{r}
+Conversions <- read.csv("C:/Users/christine.iyer/Box/FY20_Spring_Travel/InqAppTidied.csv", header = T, stringsAsFactors = F)
+
+```
+
+To measure the effectiveness of the ads, we can look at how many **new** inquiries and applications were generated during the campaign, starting at the onset date through two weeks after the end. 
+
+I have divided these findings into three subsets of geo-targeting because we made some shifts after Spring 2018. 
+
+**Geo-Targets 2017-2019**
+
+	
+
+
+```{r}
+ThreeYearTargets <- c("Fairfield, CT",	
+"Hartford, CT",	
+"New Haven, CT",	
+"Essex, MA",	
+"Middlesex, MA",	
+"Worcester, MA",	
+"Hillsborough, NH",	
+"Rockingham, NH",	
+"Strafford, NH",	
+"Caledonia, VT",	
+"Chittenden, VT",	
+"Rutland, VT",	
+"Providence, RI",	
+"Washington, RI")
+colnames(Conversions) <-c("Year", "Targets", "State", "County", "Inquiry", "Applicant") 
+```
+
+
+```{r}
+kable(head(Conversions))
+
+Conversions%>%
+  filter(County %in% ThreeYearTargets)
+  kable() %>%
+  kable_styling()
+
+```
+
 
 ### Conclusions
 
