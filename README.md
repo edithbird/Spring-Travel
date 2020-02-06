@@ -218,7 +218,7 @@ Next steps include looking at enrollments, geo-targeted engagement in the websit
 | VT   | Chittenden | 31    | 37    | 23    | 10    | 10    |   7
 | VT   | Rutland | 15    | 16    | 12    | 2    | 4    |   6 |
 | RI   | Providence | 127    | 111    | 94    | 9    | 3    |   7 |
-| RI   | Washington | 23    | 25    | 216    | 2    | 2    |   2 |
+| RI   | Washington | 23    | 25    | 16    | 2    | 2    |   2 |
 
 
 
