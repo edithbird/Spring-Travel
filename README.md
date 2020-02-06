@@ -204,7 +204,6 @@ Next steps include looking at enrollments, geo-targeted engagement in the websit
 ### Targeted 2017, 2018, 2019
 |  Location           | Inquiries                | Applicants              |
 | :-----------------: | :--------------------- : | :--------------------- :|
-
 | State |    County   |  2017  |  2018  |  2019  |  2017  |  2018  |  2019 |
 | :---: | :---------: | :----: | :----: | :----: |:-----: | :----: |:----: |
 | CT   | Fairfield| 283    | 301    | 283    | 301    | 283    |   789 |
