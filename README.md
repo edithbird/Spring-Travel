@@ -205,20 +205,20 @@ Next steps include looking at enrollments, geo-targeted engagement in the websit
 
 | State |    County   |  Inquiries 2017  | Inquiries 2018  |  Inquiries 2019  | Applicants 2017  |  Applicants 2018  |  Applicants 2019 |
 | :---: | :---------: | :----: | :----: | :----: |:-----: | :----: |:----: |
-| CT   | Fairfield| 283    | 301    | 283    | 301    | 283    |   789 |
-| CT   | Hartford | 283    | 301    | 283    | 301    | 283    |   789 |
-| CT   | New Haven | 283    | 301    | 283    | 301    | 283    |   789 |
-| MA   | Essex | 283    | 301    | 283    | 301    | 283    |   789 |
-| MA   | Middlesex | 283    | 301    | 283    | 301    | 283    |   789 |
-| MA   | Worcester | 283    | 301    | 283    | 301    | 283    |   789 |
-| NH   | Hillsborough | 283    | 301    | 283    | 301    | 283    |   789 |
-| NH   | Rockingham | 283    | 301    | 283    | 301    | 283    |   789 |
-| NH   | Strafford | 283    | 301    | 283    | 301    | 283    |   789 |
-| VT   | Caledonia | 283    | 301    | 283    | 301    | 283    |   789 |
-| VT   | Chittenden | 283    | 301    | 283    | 301    | 283    |   789 |
-| VT   | Rutland | 283    | 301    | 283    | 301    | 283    |   789 |
-| RI   | Providence | 283    | 301    | 283    | 301    | 283    |   789 |
-| RI   | Washington | 283    | 301    | 283    | 301    | 283    |   789 |
+| CT   | Fairfield| 67    | 86    | 67    | 4    | 6    |   9 |
+| CT   | Hartford | 103    | 112    | 72    | 15    | 13    |   10 |
+| CT   | New Haven | 84    | 117    | 37    | 6    | 3    |   7 |
+| MA   | Essex | 178    | 203    | 156    | 41    | 45    |   26 |
+| MA   | Middlesex | 247    | 286    | 137    | 27    | 58    |   26 |
+| MA   | Worcester | 156    | 142    | 79    | 27    | 15    |   10 |
+| NH   | Hillsborough | 121    | 117    | 86    | 26    | 28    |   14 |
+| NH   | Rockingham | 94    | 126    | 84    | 18    | 43    |   14 |
+| NH   | Strafford | 51    | 64    | 39    | 17    | 14    |   15 |
+| VT   | Caledonia | 12    | 13    | 9    | 1    | 4    |   4 |
+| VT   | Chittenden | 31    | 37    | 23    | 10    | 10    |   7
+| VT   | Rutland | 15    | 16    | 12    | 2    | 4    |   6 |
+| RI   | Providence | 127    | 111    | 94    | 9    | 3    |   7 |
+| RI   | Washington | 23    | 25    | 216    | 2    | 2    |   2 |
 
 
 
