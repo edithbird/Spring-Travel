@@ -1,0 +1,309 @@
+---
+title: "FA20 Spring Travel Ads"
+subtitle: "FY19 Spring Travel Ads Recruiting HS students for Fall 2020"
+author: "Christine Iyer"
+date: "June 3, 2019"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+
+
+
+
+
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+	echo = FALSE,
+	message = FALSE,
+	warning = FALSE
+)
+```
+
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(googleAnalyticsR)
+library(hms)
+library(ggplot2)
+library(gtable)
+library(grid)
+library(ggpubr)
+library(kableExtra)
+library(scales)
+library(stringr)
+```
+
+
+### Basic Description
+
+The University of Southern Maine's Office of Marketing and Brand Management has run a digital advertising campaign to support Admissions'out-of-state spring travel events offered by the Office of Admissions for the past three years. The schedule of events has not differed significantly over the past 3 years. Advertising is able to geo-target the ads based on the Admission's counselors travel schedule. Typically, ads precede and follow events for a week in the general geographic location. In 2019, we revised the messaging to promote our RSP program, which is beneficial for out-of-state students.
+
+**Overall project objective**
+
+
+1. Microtargeting ads in CT, MA, NH, VT, and RI to support Admission Counselors' travel. [See spring schedule here.](https://docs.google.com/spreadsheets/d/1m3-AH6e38MSTcHqLt9ukgFJk1b7u4p_WNckNWxQVJK0/edit#gid=2133303328)  
+
+2. Evaluate Spring 2019 ad performance.
+
+3. Compare Spring '19 ad performance to Spring '18 ad performance for any insights to improvements or declines.
+
+
+
+---
+
+### Findings
+
+
+
+**Ad performance:**
+
+**How did the ads do in terms of CTR?**
+
+* We have run digital display ads through Doubleclick Bid Manager and Facebook to support Admissions' spring travel activities for the past three years. 
+
+* We have seen good growth within the Doubleclick platform. 
+
+* Facebook saw a big drop in CTR performance. In general, [FB Newsfeed CTR overall experienced a 24% drop from July, 2017 - July, 2018.](https://blog.adstage.io/facebook-ads-benchmarks) We felt such a drop required that we look into other digital advertising options, and therefore expanded our portfolio to include Instagram and LinkedIn in addition to DBM.
+
+* We decreased our spend on FB display for the HS market, as we have seen a decline over time in CTR. This decline continued with this Spring Travel campaign. A decline in spending does not directly impact CTR. 
+
+
+```{r}
+Vendor <- c("DBM", "FB/IG")
+Impressions <- c("9,001,255", "1,418,314")
+CTR <- c("0.02%", "0.44%")
+Ads <- read.csv("file:///C:/Users/christine.iyer/Downloads/SpringAds.csv", header = T, stringsAsFactors = F)
+
+
+Ads1 <- Ads %>% 
+  filter(Medium == "Disp" & Source != "IG") %>% 
+  group_by(FiscalYear = Year.of.Master.Date, Source, Medium) %>% 
+        summarise(Clicks = sum(Clicks), 
+                  Impressions = round(sum(Impressions),0), 
+                  UPV = sum(UniquePageviews), 
+                  CTR = paste0(round((sum(Clicks))/(sum(Impressions)) * 100, 2), "%")) %>% select(Source, FiscalYear,CTR) %>% arrange(Source)
+Ads1 %>%
+  kable() %>%
+  kable_styling()
+
+```
+
+As a result of Facebook's waning CTR, we decreased our total spend with this vendor.
+
+```{r}
+Ads <- read.csv("file:///C:/Users/christine.iyer/Downloads/SpringAds.2.csv", header = T, stringsAsFactors = F)
+
+Ads1 <- Ads %>% 
+  group_by(FiscalYear = Year.of.Master.Date, Source, Medium) %>% 
+        summarise(Clicks = sum(Clicks), 
+                  Impressions = round(sum(Impressions),0), 
+                  UPV = sum(UniquePageviews), 
+                  CTR = paste0(round((sum(Clicks))/(sum(Impressions)) * 100, 2), "%"),
+                  Cost = paste0("$",sum(as.numeric(Cost))))  %>% arrange(factor(Medium, levels = c("Disp", "Vid", "Car")),factor(Source, levels = c("FB", "IG")))%>% select(Source, Medium,FiscalYear, CTR, Cost)
+
+Ads1 %>% filter(Source == "FB" & Medium == "Disp") %>% select(FiscalYear, Cost) %>% 
+  kable() %>%
+  kable_styling() %>% na.omit()
+```
+
+The remaining 2019 spring travel budget was reallocated to expand into Instagram with display, video, and carousel ads, as well as add video and carousel to Facebook. The results are shown below.  
+
+* Note that Instagram display ads performed above the national benchmark of 0.16%
+
+
+```{r}
+Ads1 %>% 
+  filter(FiscalYear >2018) %>% 
+  select(Source, Medium, CTR, Cost) %>% 
+  kable() %>%
+  kable_styling() %>% 
+  row_spec(2, background = "#E8C470") %>% 
+  na.omit()
+```
+
+**Web visits from out of state to HS landing page**
+
+This is the first year we developed messaging for the RSP program and sent users to the RSP web page. Based on the graphs below, we know we increased traffic over previous years to the RSP page. UPV to this page, from the RSP travel ads totaled 1,821 visits.
+
+
+
+```{r eval=FALSE, include=FALSE}
+
+
+Ads <- Ads %>% group_by(FiscalYear = Year.of.Master.Date) %>% 
+        summarise(
+                  UPV = sum(UniquePageviews)) %>% select(FiscalYear,UPV) %>% arrange(FiscalYear)%>% na.omit()
+Ads %>%
+  kable() %>%
+  kable_styling() 
+```
+
+
+
+```{r NEBHE google, eval=FALSE, include=FALSE}
+start_date <- "2018-02-01"
+end_date <-  "2019-06-02"
+ga_auth()
+
+my_accounts <- ga_account_list()
+View(my_accounts)
+ga_id <- 63145830
+campaign_filter <- dim_filter(dimension="campaign",operator="REGEXP",expressions="FY20")
+content_filter <- dim_filter(dimension = "landingPagePath", operator = "EXACT", expressions = "/office-of-admissions/new-england-regional-tuition-program")
+my_filter_clause <- filter_clause_ga4(list(campaign_filter
+                                           #, content_filter
+                                           ))
+
+df_session <- google_analytics(ga_id, date_range = c(start_date, end_date), 
+                                metrics = c("uniquePageviews", "bounces", "timeOnPage", "sessions", "newUsers", "pageviews", "exits", "sessionDuration"), 
+                                dimensions = c("date", "landingPagePath","source", "medium", "region", "city", "metro"
+                                               ), 
+                                dim_filters = my_filter_clause,
+                                anti_sample = TRUE
+                                )
+dim(df_session)
+```
+
+
+```{r}
+travelResults <- read.csv("file:///C:/Users/christine.iyer/Box/SP19_TravelCampaignResults/SP19_Travel_Campaign_Results/SP19_Travel_Campaign_Results_GA_5-28.csv", header = T, stringsAsFactors = F)
+
+travelResults_V1 <- travelResults %>% mutate(
+  date = as.Date(date, format = "%Y-%m-%d"), 
+  Week =cut(date + 1, "week"), 
+  Month = as.Date(cut(date, "month")), 
+  adTiming = ifelse(date <= "2019-02-28", "Out-of-Market", "In-Market"),     
+  CampType = 
+    ifelse(str_detect(adContent, "FA20"),"Ad",  
+           ifelse(str_detect(adContent, "Email"), "Email", "Other")))
+
+travelResults_V2 <-  travelResults_V1 %>% group_by(Month, adTiming) %>% summarise(UPV = sum(uniquePageviews), pageviews = sum(pageviews), exits = sum(exits),  sessions = sum(sessions), bounces = sum(bounces), BounceRate = round(bounces/sessions * 100, 0), Av_SecondsOnPage = sum(timeOnPage)/(sum(pageviews)- sum(exits)),Av_TOP = round_hms(as.hms(Av_SecondsOnPage), 5)) %>% select(Month, adTiming, UPV, BounceRate, Av_TOP, Av_SecondsOnPage)
+#range(travelResults_V2$Month)
+```
+
+
+
+```{r}
+
+colorP <- c("#F6A704", "#0E1033","#4E7B14","#A92007","#D47E0A")
+PGUPV <- travelResults_V2 %>% 
+  ggplot(aes(x = Month, y = UPV , color = adTiming)) +
+  geom_line(size = 1.2) +
+  scale_color_manual(values = colorP) +
+  theme_bw() + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
+  theme(axis.title.x=element_blank(),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"),axis.ticks.x=element_blank())
+
+PGBR <- travelResults_V2 %>% 
+  ggplot(aes(x = Month, y = BounceRate , color = adTiming)) +
+  geom_line(size = 1.2) +
+  scale_color_manual(values = colorP) +
+  theme_bw() + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
+  theme(axis.title.x=element_blank(),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"),axis.ticks.x=element_blank())
+
+
+PGTOP <- travelResults_V2 %>% 
+  ggplot(aes(x = Month, y = Av_SecondsOnPage , color = adTiming)) +
+  geom_line(size = 1.2) +
+  scale_color_manual(values = colorP) +
+  theme_bw() + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1)) +
+  theme(axis.title.x=element_blank(),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+panel.background = element_blank(), axis.line = element_line(colour = "black"),axis.ticks.x=element_blank())
+
+```
+
+
+**Traffic to the current [landing page](https://usm.maine.edu/office-of-admissions/new-england-regional-tuition-program) since March 1, 2017**
+
+* We are directing of out-of-state ad viewers to a new landing page pertinent to them. Until 3/1/2019, all traffic to this page came from organic traffic. Previously we did not see such robust activity to this page. The following three plots track differences in web metrics.
+
+* The first plot shows the difference in the number of unique page views. These have increased exponentially
+
+* The second plot shows the the average time on page (among those who have not bounced), has essentially remained the same since the ads have been driving traffic here. 
+
+* Bounce rates (BR) to a web page for digital ad visits tend to be much higher than organic visits. In this case, our BR for the RSP ads are lower than our typical ads - 89% vs. in the low-mid 90's.
+
+
+```{r fig.height=2,5, fig.width=8}
+a <- ggarrange(PGUPV, PGTOP, PGBR, ncol=3, nrow=1, common.legend = TRUE, legend="right")
+
+a
+
+```
+
+---
+
+
+```{r}
+travelResults_V3 <-  travelResults_V1 %>% group_by(adTiming) %>% summarise(UPV = sum(uniquePageviews), pageviews = sum(pageviews), exits = sum(exits),  sessions = sum(sessions), bounces = sum(bounces), BounceRate = (round(bounces/sessions * 100, 0)), Av_SecondsOnPage = sum(timeOnPage)/(sum(pageviews)- sum(exits)),Av_TOP = round_hms(as.hms(Av_SecondsOnPage), 5)) %>% select(adTiming, UPV,BounceRate, Av_TOP, Av_SecondsOnPage)
+
+
+kable((travelResults_V3) %>% 
+        mutate(UniquePageviews = paste0("   ", UPV), Avg_Time_On_Page = paste0("    ", Av_TOP), BounceRate = paste0(BounceRate, "%"), adTiming = paste0(adTiming, "    ")) %>% 
+        select(adTiming, UniquePageviews, Avg_Time_On_Page, BounceRate)) %>%
+  kable_styling()
+```
+
+---
+
+
+ 
+
+```{r eval=FALSE, include=FALSE}
+**Lead to Inquiry conversions in Salesforce**
+
+The Lead column indicates how many lead names were purchased from the New England area, excluding Maine. Not all inquiries came from leads. I have begun tracking conversions accurately and have counted 309  inquiries of the lead names we purchased in Feb 2019, accounting for nearly 25% of inquiries from this spring. 
+Funnel <- read.csv("file:///C:/Users/christine.iyer/Box/SP19_TravelCampaignResults/FunnelSpring.csv", header = T, stringsAsFactors = F)
+# head(Funnel)
+# Funnel <- Funnel %>% 
+#   filter(StudentStage != "Lead") %>% 
+#   mutate(InitSourceDate = as.Date(InitSourceDate, format = "%m/%d/%Y"), Year = as.Date(cut(InitSourceDate, "year"))) %>% arrange(desc(StudentStage))
+# 
+Lead <- c(18057, 38597, 5765)
+Inquiry <- c(1608,1908,1302)
+Applicant <- c(253,408,198)
+Year <- c(2017, 2018, 2019)
+Funnel <- data.frame(Year, Inquiry, Applicant)
+Funnel%>%
+  kable() %>%
+  kable_styling()
+```
+
+
+
+```{r eval=FALSE, include=FALSE}
+SpringRevisedFunnel <- read.csv("file:///C:/Users/christine.iyer/Box/SP19_TravelCampaignResults/SP19_Travel_Campaign_Results/InqAppsAllSpring.csv", header = T, stringsAsFactors = F)
+SpringRevisedFunnel%>%
+  mutate(Date = as.Date(Date, format = "%m/%d/%Y"), 
+         Year = cut(Date, "year")) %>% 
+  group_by(ReferralType,Year ) %>% 
+  summarise(
+    Inquiries = sum(Inquiry),
+    Applicants = sum(Applicant)) %>% 
+  kable() %>%
+  kable_styling()
+
+
+#Links[Targeted areas](https://docs.google.com/document/d/1uT643LkmKsqNxyx1IOLlLPGdxZM63ZibR9weZLrTYVY/edit)
+```
+
+### Conclusions
+
+* This campaign shows positive results. The messaging is specific to driving interest of out-of-state high school students. Based on the high number of UPV, the smae level of engagement (ToP) for organic visitors, and a lower than typical BR, our recommendation is to continue this campaign for the Fall travel season.
+
+* We have seen a continued decline in FB activity for the HS audience. We decreased our spend on FB display for the HS market, as we have seen a decline over time in CTR. This decline continued with this Spring Travel campaign. We will be requesting Rinck to remove FB from HS efforts unless there is a clear and specific reason to do so. 
+
+ 
+ 
+
+ 

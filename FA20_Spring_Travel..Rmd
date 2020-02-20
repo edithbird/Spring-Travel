@@ -1,7 +1,7 @@
 ---
-title: "FA20_Spring_Travel_Refresh"
+title: "FA20 Spring Travel Campaign Performance Review and FA21 Spring Travel Schedule"
 author: "Office of Marketing and Brand Management"
-date: "2/5/2020"
+date: "2/7/2020"
 output: pdf_document
 ---
 
@@ -48,15 +48,13 @@ In order to review the performance of the Spring 2019 Travel Campaign and make r
 
 ## Findings
 
-### Ad Performance
-
-**Ad Performance Highlights:**
+### Ad Performance Highlights:
 
 **How did the ads do in terms of CTR?**
 
 * We have seen good growth within the Doubleclick platform.
 
-* Facebook saw a big drop in CTR performance as noted in pertinent literature. In general,
+* Facebook saw a big drop in CTR performance as noted by AdStage in their 2018 Q3 Facebook Ads Benchmark Report. In general,
     \href{https://blog.adstage.io/facebook-ads-benchmarks}{{\color{blue}{\underline{FB Newsfeed }}}} CTR overall experienced a 24% drop from July, 2017 - July, 2018.
 We have also noticed this within our own analyses. We felt such a drop required that we look into other digital advertising options, and therefore expanded our portfolio to include Instagram to compliment FB and DBM. We also expanded ad mediums to include video and carousel.
 
@@ -118,6 +116,10 @@ Ads1 <- Ads %>%
                   Cost = paste0("$",sum(as.numeric(Cost))))  %>% arrange(factor(Medium, levels = c("Disp", "Vid", "Car")),factor(Source, levels = c("FB", "IG")))%>% select(Source, Medium,FiscalYear, CTR, Cost)
 
 Ads1 %>% filter(Source == "FB" & Medium == "Disp") %>% select(FiscalYear, Cost) %>% 
+  kable() %>%
+  kable_styling() %>% na.omit()
+
+Ads1 %>% filter(Source == "IG" & Medium == "Disp") %>% select(FiscalYear, Cost) %>% 
   kable() %>%
   kable_styling() %>% na.omit()
 ```
@@ -226,7 +228,7 @@ panel.background = element_blank(), axis.line = element_line(colour = "black"),a
 
 
 
-* We directed of out-of-state ad viewers to a new landing page pertinent to them. Until 3/1/2019, all traffic to this page came from organic sources and was not at all robust. There was a remarkable change in Unique Pageviews (UPV) once the campaign deployed. The following three plots track differences in web metrics.
+* Until 3/1/2019, all traffic to this page came from organic sources and was not at all robust. There was a remarkable change in Unique Pageviews (UPV) once the campaign deployed. The following three plots track differences in web metrics.
 
 * The first plot shows the difference in the number of unique pageviews since March 2017. These increased exponentially once ads went live. Prior to the ad run, the page saw very little traffic.
 
@@ -401,11 +403,17 @@ colnames(A) <- c("County", "Inquiries 2017", "Inquiries 2018", "Inquiries 2019")
 
 ### Conclusions
 
-* This campaign shows positive results. The messaging is specific to driving interest of out-of-state high school students. Based on the high number of UPV, the same level of engagement (ToP) for organic visitors, and a lower than typical BR, our recommendation is to continue this campaign for the Fall travel season.
+* This campaign shows positive results in terms of advertising performance for DBM and IG.  Furthermore, the high number of UPV, the same level of engagement (ToP) for organic visitors, and a lower than typical BR, the messaging is pertinant to out-of-state high school students.
 
-* We have seen a continued decline in FB activity for the HS audience. We decreased our spend on FB display for the HS market, as we have seen a decline over time in CTR. This decline continued with this Spring Travel campaign. We will be requesting Rinck to remove FB from HS efforts unless there is a clear and specific reason to do so. 
+* We have seen a continued decline in FB activity for the HS audience. We decreased our spend on FB display for the HS market, as we have seen a decline over time in CTR. This decline continued with this Spring Travel campaign. We will be requesting Rinck to remove FB from HS efforts unless there is a clear and specific reason to do so.
 
- \href{https://docs.google.com/spreadsheets/d/1m3-AH6e38MSTcHqLt9ukgFJk1b7u4p_WNckNWxQVJK0/edit#gid=2133303328}{{\color{blue}{\underline{See spring schedule here.}}}}
+* Regarding the number of initial inquiries and applications during the ad campaign, the year over year decrease warrents discussion. It is difficult to say if initial inquiries and applications during the travel campaign is the best measurement because the targeted audience is just beginning the college search. 
+
+* The linked FY20 Spring Travel Schedule, \href{https://docs.google.com/spreadsheets/d/1Za65ka3k3_P4A9ZaQ0hixjXSBOw0Mv7wd3O36gZMmAY/edit?usp=sharing}{{\color{blue}{\underline{FA21 Spring Travel Schedule for Digital Ads}}}} is available. We have focused our geotargets to areas with multiple events and National Fairs.
+
+
+
+ \href{https://docs.google.com/spreadsheets/d/1m3-AH6e38MSTcHqLt9ukgFJk1b7u4p_WNckNWxQVJK0/edit#gid=2133303328}{{\color{blue}{\underline{For reference: See Spring 2019 schedule here.}}}}
 
 
  
