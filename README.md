@@ -1,4 +1,4 @@
-# Spring-Travel
+﻿# Spring-Travel
 The Spring Travel project involves planning for the upcoming Admission's travel events in greater New England. Planning involves:
 
 * Review previous year's ad run schedule. 
@@ -221,4 +221,6 @@ Next steps include looking at enrollments, geo-targeted engagement in the websit
 | RI   | Washington | 23    | 25    | 16    | 2    | 2    |   2 |
 
 
+### YoY for first few weeks
 
+![Image of Yaktocat]("C:\Users\christine.iyer\Box\FY20_Spring_Travel\Capture1.PNG")
