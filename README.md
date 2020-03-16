@@ -223,4 +223,4 @@ Next steps include looking at enrollments, geo-targeted engagement in the websit
 
 ### YoY for first few weeks
 
-![Image of Yaktocat]("C:\Users\christine.iyer\Box\FY20_Spring_Travel\Capture1.PNG")
+![YoY for first few weeks](C:\Users\christine.iyer\Box\FY20_Spring_Travel\Capture1.PNG)
